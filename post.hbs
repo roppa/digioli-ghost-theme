@@ -1,0 +1,72 @@
+{{!< default}}
+
+{{#post}}
+<section class="hero is-medium is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-10-desktop is-offset-1-desktop">
+          <h1 class="title is-2 is-spaced">{{title}}</h1>
+          <section class="post-full-meta">
+            <time class="post-full-meta-date" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="D MMMM YYYY"}}</time>
+            {{#primary_tag}}
+            <span class="date-divider">/</span>
+            <a href="{{url}}">{{name}}</a>
+            {{/primary_tag}}
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<main class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-10-desktop is-offset-1-desktop">
+        <div class="content">
+          {{content}}
+        </div>
+        <div class="section tags">
+          {{#if tags}}
+            <ul>
+              {{#foreach tags}}
+                <li class="tag is-primary is-medium">
+                  <a href="{{url}}" title="{{name}}" >{{name}}</a>
+                </li>
+              {{/foreach}}
+            </ul>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <aside class="columns">
+      {{#if primary_tag}} {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}} {{#if related_posts}}
+      <article class="card column is-one-third" {{#if ../primary_tag.feature_image}} style="background-image: url({{../primary_tag.feature_image}})"
+        {{else}} {{#if @blog.cover_image}} style="background-image: url({{@blog.cover_image}})" {{/if}} {{/if}}>
+        {{#if feature_image}}
+        <a href="{{url}}">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="{{feature_image}}" alt="">
+            </figure>
+          </div>
+        </a>
+        {{/if}}
+        <div class="card-content">
+          {{#foreach related_posts}}
+          <div class="media">
+            <ul class="media-content">
+              <li><a href="{{url}}">{{title}}</a></li>
+            </ul>
+          </div>
+          {{/foreach}}
+          <div class="content">
+            <a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='No posts' singular='% post' plural='See all % posts'}} →</a>
+          </div>
+        </div>
+      </article>
+      {{/if}} {{/get}} {{/if}} {{#next_post}} {{> "post-card"}} {{/next_post}} {{#prev_post}} {{> "post-card"}} {{/prev_post}}
+    </aside>
+  </div>
+</main>
+{{/post}}

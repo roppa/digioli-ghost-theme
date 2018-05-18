@@ -1,0 +1,43 @@
+<article class="column is-one-third">
+  <a href="{{url}}">
+    {{#if feature_image}}
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="{{feature_image}}" alt="Feature image">
+      </figure>
+    </div>
+  {{/if}}</a>
+  <div class="card-content">
+    <a href="{{url}}"><h2 class="title post-title is-3">{{title}}</h2></a>
+    {{#foreach authors}}
+      <div class="media">
+        {{#if profile_image}}
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <a href="{{url}}" class="static-avatar">
+              <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
+            </a>
+          </figure>
+        </div>
+        {{else}}
+        <a href="{{url}}" class="image is-48x48">{{> "icons/avatar"}}</a>
+        {{/if}}
+        <div class="media-content">
+          <a href="{{url}}"><h3 class="title is-5">{{name}}</h3></a>
+        </div>
+      </div>
+    {{/foreach}}
+    <div class="content">
+      <a href="{{url}}">
+        <p>
+          {{excerpt words="33"}}
+        </p>
+      </a>
+      <br />
+      {{#if primary_tag}}
+        {{primary_tag.name}}.
+      {{/if}}
+      ({{reading_time}}).
+    </div>
+  </div>
+</article>

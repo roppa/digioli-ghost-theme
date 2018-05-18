@@ -1,0 +1,45 @@
+<footer class="footer site-footer">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <h3 class="title is-4">Tags</h3>
+        <ul>
+          {{#get "tags"}} {{#foreach tags}}
+          <li class="tag is-medium is-dark">
+            <a href="{{url}}" title="{{name}}">{{name}}</a>
+          </li>
+          {{/foreach}} {{/get}}
+        </ul>
+      </div>
+      <div class="column">
+        <h3 class="title is-4">Contact</h3>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/roppa/"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="https://github.com/roppa"><i class="fab fa-github"></i> Github</a></li>
+          <li><a href="https://twitter.com/roppa_uk"><i class="fab fa-twitter-square"></i> Twitter</a></li>
+          <li><a href="https://www.npmjs.com/~roppa_uk"><i class="fab fa-npm"></i> Npm</a></li>
+          <li><a href="https://stackoverflow.com/users/1141160/mark-robson"><i class="fab fa-stack-overflow"></i> Stack Overflow</a></li>
+        </ul>
+      </div>
+      <div class="column" id="subscribe">
+        {{#if @labs.subscribers}}
+          <h3 class="title is-4">Subscribe</h3>
+          {{subscribe_form
+            input_class="input is-medium is-flat"
+            button_class="button is-medium is-link"
+            placeholder="Email address"
+            autofocus="true"
+          }}
+        {{/if}}
+      </div>
+    </div>
+    <div class="column">
+      <p>
+        <small>
+          <a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+        </small>
+      </p>
+    </div>
+  </div>
+</footer>

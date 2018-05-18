@@ -1,0 +1,39 @@
+<article class="card column is-one-third {{post_class}}{{#unless feature_image}} no-image{{/unless}}">
+  {{#if feature_image}}
+    <a href="{{url}}">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img src="{{feature_image}}" alt="">
+        </figure>
+      </div>
+    </a>
+  {{/if}}
+  <div class="card-content">
+    {{#foreach authors}}
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            {{#if profile_image}}
+            <a href="{{url}}">
+              <img src="{{profile_image}}" alt="{{name}}">
+            </a>
+            {{else}}
+              <a href="{{url}}">{{> "icons/avatar"}}</a>
+            {{/if}}
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4">{{name}}</p>
+        </div>
+      </div>
+    {{/foreach}}
+    <div class="content">
+      <h2 class="title is-3">{{title}}</h2>
+      <p>{{excerpt words="33"}}</p>
+      {{#if primary_tag}}
+        <span class="post-card-tags">{{primary_tag.name}}</span>
+      {{/if}}
+      <span class="reading-time">{{reading_time}}</span>
+    </div>
+  </div>
+</article>
