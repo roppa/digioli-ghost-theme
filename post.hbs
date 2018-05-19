@@ -28,6 +28,7 @@
         </div>
         <div class="section tags">
           {{#if tags}}
+            <h3 class="title is-3 is-spaced">Tags</h3>
             <ul>
               {{#foreach tags}}
                 <li class="tag is-primary is-medium">
@@ -40,32 +41,32 @@
       </div>
     </div>
     <aside class="columns">
-      {{#if primary_tag}} {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |related_posts|}} {{#if related_posts}}
-      <article class="card column is-one-third" {{#if ../primary_tag.feature_image}} style="background-image: url({{../primary_tag.feature_image}})"
-        {{else}} {{#if @blog.cover_image}} style="background-image: url({{@blog.cover_image}})" {{/if}} {{/if}}>
-        {{#if feature_image}}
-        <a href="{{url}}">
-          <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="{{feature_image}}" alt="">
-            </figure>
-          </div>
-        </a>
+      {{#if primary_tag}}
+        {{#get "posts" filter="tags:{{primary_tag.slug}}+id:-{{id}}" limit="7" as |related_posts|}} 
+          {{#if related_posts}}
+            <article class="card column is-3">
+              <div class="card-content">
+                <h2 class="title is-3">Related posts</h2>
+                {{#foreach related_posts}}
+                <div class="media">
+                  <ul class="media-content">
+                    <li><a href="{{url}}">{{title}}</a></li>
+                  </ul>
+                </div>
+                {{/foreach}}
+              </div>
+            </article>
+            {{/if}}
+          {{/get}}
         {{/if}}
-        <div class="card-content">
-          {{#foreach related_posts}}
-          <div class="media">
-            <ul class="media-content">
-              <li><a href="{{url}}">{{title}}</a></li>
-            </ul>
-          </div>
-          {{/foreach}}
-          <div class="content">
-            <a href="{{#../primary_tag}}{{url}}{{/../primary_tag}}">{{plural meta.pagination.total empty='No posts' singular='% post' plural='See all % posts'}} →</a>
-          </div>
-        </div>
-      </article>
-      {{/if}} {{/get}} {{/if}} {{#next_post}} {{> "post-card"}} {{/next_post}} {{#prev_post}} {{> "post-card"}} {{/prev_post}}
+
+        {{#next_post}}
+          {{> "post-article"}}
+        {{/next_post}}
+        
+        {{#prev_post}}
+          {{> "post-article"}}  
+        {{/prev_post}}
     </aside>
   </div>
 </main>

@@ -8,7 +8,7 @@
     </div>
   {{/if}}</a>
   <div class="card-content">
-    <a href="{{url}}"><h2 class="title post-title is-3">{{title}}</h2></a>
+    <a href="{{url}}" title="{{title}}"><h2 class="title post-title is-3">{{title}}</h2></a>
     {{#foreach authors}}
       <div class="media">
         {{#if profile_image}}
@@ -35,7 +35,9 @@
       </a>
       <br />
       {{#if primary_tag}}
-        {{primary_tag.name}}.
+        {{#primary_tag}}
+          <a href="{{url}}"><span class="tag is-primary is-medium">{{name}}</span></a>
+        {{/primary_tag}}
       {{/if}}
       ({{reading_time}}).
     </div>

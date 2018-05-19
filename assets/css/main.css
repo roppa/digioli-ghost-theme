@@ -6507,6 +6507,25 @@ label.panel-block {
 body {
   font-size: 1.25rem; }
 
+article {
+  box-shadow: 5px 5px 20px #ccc;
+  transition: box-shadow 0.3s; }
+  article:hover {
+    box-shadow: 5px 5px 20px #aaa; }
+
+dt {
+  font-weight: bold;
+  font-size: 1.5rem; }
+
+blockquote {
+  font-size: 1.5rem;
+  font-style: italic; }
+  blockquote::before {
+    content: '"'; }
+
+.media {
+  margin-bottom: 1rem; }
+
 svg {
   fill: #a82423; }
 
@@ -6544,10 +6563,14 @@ svg {
   .site-footer .title {
     color: #fff; }
 
-.section.tags a {
-  color: #fff; }
-  .section.tags a:hover {
-    text-decoration: underline; }
+.section.tags {
+  padding-left: 0; }
+  .section.tags h3 {
+    margin-right: 1rem; }
+  .section.tags a {
+    color: #fff; }
+    .section.tags a:hover {
+      text-decoration: underline; }
 
 .sandbox {
   display: flex;
