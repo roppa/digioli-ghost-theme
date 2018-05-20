@@ -11,7 +11,7 @@
             <time class="post-full-meta-date" datetime="{{date format=" YYYY-MM-DD "}}">{{date format="D MMMM YYYY"}}</time>
             {{#primary_tag}}
             <span class="date-divider">/</span>
-            <a href="{{url}}">{{name}}</a>
+            <a href="{{url}}" title="{{name}}">{{name}}</a>
             {{/primary_tag}}
           </section>
         </div>
@@ -28,15 +28,35 @@
         </div>
         <div class="section tags">
           {{#if tags}}
-            <h3 class="title is-3 is-spaced">Tags</h3>
-            <ul>
-              {{#foreach tags}}
-                <li class="tag is-primary is-medium">
-                  <a href="{{url}}" title="{{name}}" >{{name}}</a>
-                </li>
-              {{/foreach}}
-            </ul>
+          <h3 class="title is-3 is-spaced">Tags</h3>
+          <ul>
+            {{#foreach tags}}
+            <li class="tag is-primary is-medium">
+              <a href="{{url}}" title="{{name}}">{{name}}</a>
+            </li>
+            {{/foreach}}
+          </ul>
           {{/if}}
+        </div>
+        <div class="section">
+          <aside>
+            <div id="disqus_thread"></div>
+            <script>
+              var disqus_config = function () {
+                this.page.url = '{{url absolute="true"}}';
+                this.page.identifier = 'ghost-{{comment_id}}';
+              };
+              (function () {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://digioli.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the
+              <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+            </noscript>
+          </aside>
         </div>
       </div>
     </div>
@@ -50,7 +70,7 @@
                 {{#foreach related_posts}}
                 <div class="media">
                   <ul class="media-content">
-                    <li><a href="{{url}}">{{title}}</a></li>
+                    <li><a href="{{url}}" title="{{title}}">{{title}}</a></li>
                   </ul>
                 </div>
                 {{/foreach}}

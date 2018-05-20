@@ -1,5 +1,5 @@
 <article class="column is-one-third">
-  <a href="{{url}}">
+  <a href="{{url}}" title="{{title}}">
     {{#if feature_image}}
     <div class="card-image">
       <figure class="image is-4by3">
@@ -14,21 +14,21 @@
         {{#if profile_image}}
         <div class="media-left">
           <figure class="image is-48x48">
-            <a href="{{url}}" class="static-avatar">
+            <a href="{{url}}" title="{{title}}" class="static-avatar">
               <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
             </a>
           </figure>
         </div>
         {{else}}
-        <a href="{{url}}" class="image is-48x48">{{> "icons/avatar"}}</a>
+        <a href="{{url}}" title="{{title}}" class="image is-48x48">{{> "icons/avatar"}}</a>
         {{/if}}
         <div class="media-content">
-          <a href="{{url}}"><h3 class="title is-5">{{name}}</h3></a>
+          <a href="{{url}}" title="{{name}}"><h3 class="title is-5">{{name}}</h3></a>
         </div>
       </div>
     {{/foreach}}
     <div class="content">
-      <a href="{{url}}">
+      <a href="{{url}} title="{{name}}"">
         <p>
           {{excerpt words="33"}}
         </p>
@@ -36,7 +36,7 @@
       <br />
       {{#if primary_tag}}
         {{#primary_tag}}
-          <a href="{{url}}"><span class="tag is-primary is-medium">{{name}}</span></a>
+          <a href="{{url}}" title="{{name}}"><span class="tag is-primary is-medium">{{name}}</span></a>
         {{/primary_tag}}
       {{/if}}
       ({{reading_time}}).
