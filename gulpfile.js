@@ -19,7 +19,7 @@ gulp.task('zip', ['css'], function () {
   return gulp.src([
       '**',
       '!node_modules', '!node_modules/**',
-      '_css',
+      '!_css', '!_css/**',
       '!dist', '!dist/**'
     ])
     .pipe(zip(filename))
