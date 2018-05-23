@@ -1,12 +1,13 @@
 <article class="column is-one-third">
-  <a href="{{url}}" title="{{title}}">
-    {{#if feature_image}}
+  {{#if feature_image}}
+    <a href="{{url}}" title="{{title}}"></a>
     <div class="card-image">
       <figure class="image is-4by3">
         <img src="{{feature_image}}" alt="Feature image">
       </figure>
     </div>
-  {{/if}}</a>
+    </a>
+  {{/if}}
   <div class="card-content">
     <a href="{{url}}" title="{{title}}"><h2 class="title post-title is-3">{{title}}</h2></a>
     {{#foreach authors}}
@@ -14,8 +15,8 @@
         {{#if profile_image}}
         <div class="media-left">
           <figure class="image is-48x48">
-            <a href="{{url}}" title="{{title}}" class="static-avatar">
-              <img class="author-profile-image" src="{{profile_image}}" alt="{{name}}" />
+            <a href="{{url}}" title="{{title}}">
+              <img src="{{profile_image}}" alt="{{name}}" class="static-avatar" />
             </a>
           </figure>
         </div>

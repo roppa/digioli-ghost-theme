@@ -1,6 +1,6 @@
 <nav class="navbar is-white" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a id="logo" class="navbar-item" href="{{@blog.url}}">
+    <a id="logo" class="navbar-item" title="{{@blog.title}}" href="{{@blog.url}}">
       {{#if @blog.logo}}
         <img width="150px" src="{{@blog.logo}}" alt="{{@blog.title}}" />
       {{else}}
@@ -29,13 +29,13 @@
         {{#if @blog.twitter}}
             <li class="icon is-large">
               <a class="social-link social-link-tw" href="{{twitter_url @blog.twitter}}" target="_blank" rel="noopener">
-                <i class="fab fa-twitter-square"></i>
+                <i class="fab fa-twitter-square" aria-hidden></i>
               </a>
             </li>
         {{/if}}
           <li class="icon is-large">
             <a class="rss-button" href="https://feedly.com/i/subscription/feed/{{@blog.url}}/rss/" target="_blank" rel="noopener">
-              <i class="fas fa-rss-square"></i>
+              <i class="fas fa-rss-square" aria-hidden></i>
             </a>
           </li>
         {{#if @labs.subscribers}}
