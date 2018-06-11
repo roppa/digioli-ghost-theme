@@ -10515,6 +10515,26 @@ body {
   font-size: 1.25rem;
 }
 
+a.skipnav {
+  color: #fff;
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+a.skipnav:active,
+a.skipnav:focus,
+a.skipnav:hover {
+  left: 2rem;
+  top: 6rem;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
 article {
   box-shadow: 5px 5px 20px #ccc;
   transition: box-shadow .3s;
@@ -10551,8 +10571,10 @@ svg {
   background: linear-gradient(45deg,#d00707 70%,#a82423 50%);
 }
 
-.hero.is-primary {
-  margin-bottom: 4rem;
+@media screen and (min-width:1088px) {
+  .hero.is-primary {
+    margin-bottom: 4rem;
+  }
 }
 
 .hero.is-primary .title {

@@ -22,6 +22,26 @@ body {
   font-size: $size-5;
 }
 
+a.skipnav {
+  color: $red-invert;
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+a.skipnav:active,
+a.skipnav:focus,
+a.skipnav:hover {
+  left: 2rem;
+  top: 6rem;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
 article {
   box-shadow: 5px 5px 20px #ccc;
   transition: box-shadow 0.3s;
@@ -58,7 +78,10 @@ svg {
 }
 
 .hero.is-primary {
-  margin-bottom: $content-padding;
+
+  @media screen and (min-width: $desktop) {
+    margin-bottom: $content-padding;
+  }
 
   .title {
     text-shadow: 1px 2px 7px #5d0000;
