@@ -6,12 +6,13 @@ const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const sequence = require('run-sequence');
 const concatCss = require('gulp-concat-css');
+const concat = require('gulp-concat');
 
-gulp.task('dev', ['css'], () => {
+gulp.task('dev', ['css', 'js'], () => {
   livereload.listen(1234);
 });
 
-gulp.task('zip', ['css'], function () {
+gulp.task('zip', ['css', 'js'], function () {
   const destination = 'dist/';
   const themeName = require('./package.json').name;
   const filename = themeName + '.zip';
@@ -37,7 +38,7 @@ gulp.task('sass', () => {
 });
 
 gulp.task('minimise-css', () => {
-  return gulp.src('./_css/*.css')
+  return gulp.src(['./_css/*.css', './css/prism.css'])
     .pipe(cleanCSS())
     .pipe(concatCss('css/main.css'))
     .pipe(sourcemaps.init())
@@ -45,8 +46,15 @@ gulp.task('minimise-css', () => {
     .pipe(gulp.dest('./assets'));
 });
 
+gulp.task('js', () => {
+  return gulp.src('./js/*.js')
+    .pipe(concat('js/main.js'))
+    .pipe(gulp.dest('./assets'));
+});
+
 gulp.task('watch', () => {
   gulp.watch('sass/**', ['css']);
+  gulp.watch('js/**', ['js']);
 });
 
 gulp.task('default', ['dev'], () => {
