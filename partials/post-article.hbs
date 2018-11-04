@@ -2,8 +2,8 @@
   {{#if feature_image}}
     <a href="{{url}}" title="{{title}}"></a>
     <div class="card-image">
-      <figure class="image is-4by3">
-        <img src="{{feature_image}}" alt="Feature image">
+      <figure class="image is-4by3 kg-image-card">
+        <img src="{{feature_image}}" class="kg-image" alt="Feature image">
       </figure>
     </div>
     </a>
@@ -14,9 +14,9 @@
       <div class="media">
         {{#if profile_image}}
         <div class="media-left">
-          <figure class="image is-48x48">
+          <figure class="image is-48x48 kg-image-card">
             <a href="{{url}}" title="{{title}}">
-              <img src="{{profile_image}}" alt="{{name}}" class="static-avatar" />
+              <img src="{{profile_image}}" alt="{{name}}" class="static-avatar kg-image" />
             </a>
           </figure>
         </div>

@@ -2,7 +2,7 @@
   "name": "digioli",
   "description": ".",
   "demo": "https://digioli.co.uk",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "engines": {
     "ghost": ">=1.2.0"
   },
@@ -42,6 +42,7 @@
     "url": "https://digioli.co.uk"
   },
   "keywords": [
+    "ghost-theme",
     "ghost",
     "blog",
     "minimal",

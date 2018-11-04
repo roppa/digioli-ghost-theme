@@ -1,12 +1,12 @@
-@charset "utf-8";
+@charset 'utf-8';
 
-@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import '../node_modules/bulma/sass/utilities/initial-variables';
 
 $red: #d00707;
 $darkRed: #a82423;
 $red-invert: #fff;
 
-$family-sans-serif: "Helvetica", "Arial", sans-serif;
+$family-sans-serif: 'Helvetica', 'Arial', sans-serif;
 
 $primary: $red;
 $primary-invert: $red-invert;
@@ -16,7 +16,7 @@ $content-padding: 4rem;
 
 $footer-background-color: $red;
 
-@import "../node_modules/bulma/bulma";
+@import '../node_modules/bulma/bulma';
 
 body {
   font-size: $size-5;
@@ -60,7 +60,7 @@ blockquote {
   font-style: italic;
 
   &::before {
-    content: '"';
+    content: '';
   }
 }
 
@@ -148,3 +148,34 @@ svg {
   display: flex;
   flex-wrap: wrap;
 }
+
+.kg-width-wide img {
+  max-width: 85vw;
+}
+
+.kg-width-full img {
+  max-width: 100vw;
+}
+
+.kg-gallery-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1.5em auto;
+  max-width: 1040px;
+  width: 100vw;
+}
+
+.kg-gallery-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.kg-gallery-row:not(:first-of-type) {
+  margin: 0.75em 0 0 0;
+}
+
+.kg-gallery-image:not(:first-of-type) {
+  margin: 0 0 0 0.75em;
+}
+
